@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <cstring>
+#include <cctype>
 
 const char *trimC(char *data)
 {
@@ -11,14 +12,14 @@ const char *trimC(char *data)
 
   for (lindex = 0; lindex < len; ++lindex)
   {
-    if (data[lindex] != ' ')
+    if (!isspace(data[lindex]))
     {
       break;
     }
   }
   for (rindex = len - 1; rindex > 0; rindex--)
   {
-    if (data[rindex] != ' ')
+    if (!isspace(data[rindex]))
     {
       break;
     }
@@ -51,14 +52,14 @@ std::string trim(std::string &data)
   }
   for (lindex = 0; lindex < len; ++lindex)
   {
-    if (data[lindex] != ' ')
+    if (!isspace(data[lindex]))
     {
       break;
     }
   }
   for (rindex = len - 1; rindex > 0; rindex--)
   {
-    if (data[rindex] != ' ')
+    if (!isspace(data[rindex]))
     {
       break;
     }
