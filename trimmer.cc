@@ -1,5 +1,43 @@
 #include <iostream>
 #include <string>
+#include <cstring>
+
+const char *trimC(char *data)
+{
+  auto len = strlen(data);
+
+  std::size_t lindex = 0;
+  std::size_t rindex = 0;
+
+  for (lindex = 0; lindex < len; ++lindex)
+  {
+    if (data[lindex] != ' ')
+    {
+      break;
+    }
+  }
+  for (rindex = len - 1; rindex > 0; rindex--)
+  {
+    if (data[rindex] != ' ')
+    {
+      break;
+    }
+  }
+  rindex++;
+
+  if (lindex >= rindex)
+  {
+    return "";
+  }
+
+  if (lindex == len)
+  {
+    return data;
+  }
+
+  *(data + rindex) = 0;
+  return data + lindex;
+}
 
 std::string trim(std::string &data)
 {
@@ -47,6 +85,21 @@ int main()
 
   data = "";
   std::cout << "Tjo |" << trim(data) << "|" << std::endl;
+
+  char str[] = "   Hejsan hoppsan    ";
+  std::cout << "Tjo |" << trimC(str) << "|" << std::endl;
+
+  memset(str, 0, strlen(str));
+  strncpy(str, "", 21);
+  std::cout << "Tjo |" << trimC(str) << "|" << std::endl;
+
+  memset(str, 0, strlen(str));
+  strncpy(str, " ", 21);
+  std::cout << "Tjo |" << trimC(str) << "|" << std::endl;
+
+  memset(str, 0, strlen(str));
+  strncpy(str, "       ", 21);
+  std::cout << "Tjo |" << trimC(str) << "|" << std::endl;
 
   return 0;
 }
