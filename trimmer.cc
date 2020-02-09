@@ -102,5 +102,9 @@ int main()
   strncpy(str, "       ", 21);
   std::cout << "Tjo |" << trimC(str) << "|" << std::endl;
 
+  memset(str, 0, strlen(str));
+  strncpy(str, "   hopp", 21);
+  std::cout << "Tjo |" << trimC(str) << "|" << std::endl;
+
   return 0;
 }
