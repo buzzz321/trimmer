@@ -88,23 +88,23 @@ int main()
   std::cout << "Tjo |" << trim(data) << "|" << std::endl;
 
   char str[] = "   Hejsan hoppsan    ";
-  std::cout << "Tjo |" << trimC(str) << "|" << std::endl;
+  printf("Tjo |%s|\n", trimC(str));
 
   memset(str, 0, strlen(str));
   strncpy(str, "", 21);
-  std::cout << "Tjo |" << trimC(str) << "|" << std::endl;
+  printf("Tjo |%s|\n", trimC(str));
 
   memset(str, 0, strlen(str));
   strncpy(str, " ", 21);
-  std::cout << "Tjo |" << trimC(str) << "|" << std::endl;
+  printf("Tjo |%s|\n", trimC(str));
 
   memset(str, 0, strlen(str));
   strncpy(str, "       ", 21);
-  std::cout << "Tjo |" << trimC(str) << "|" << std::endl;
+  printf("Tjo |%s|\n", trimC(str));
 
   memset(str, 0, strlen(str));
   strncpy(str, "   hopp", 21);
-  std::cout << "Tjo |" << trimC(str) << "|" << std::endl;
+  printf("Tjo |%s|\n", trimC(str));
 
   return 0;
 }
